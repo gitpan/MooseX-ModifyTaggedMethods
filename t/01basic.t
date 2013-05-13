@@ -1,7 +1,27 @@
+=pod
+
+=encoding utf-8
+
+=head1 NAME
+
+Run through the basic features of MooseX::ModifyTaggedMethods.
+
+=head1 AUTHOR
+
+Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2012-2013 by Toby Inkster.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
 use strict;
 use warnings;
 use Test::More tests => 5;
-use Test::NoWarnings;
 
 {
 	package Local::Fu;
@@ -44,7 +64,7 @@ use Test::NoWarnings;
 	with qw( Local::Fu5 );
 }
 
-my $x;
+my ($x, $y);
 {
 	package Local::Fu7;
 	use Moose;
@@ -53,8 +73,8 @@ my $x;
 	use Sub::Talisman qw( MyTag OtherTag );
 	sub foo :MyTag :OtherTag { 4 }
 	before methods_tagged('OtherTag') => sub { ++$x };
+	after methods_tagged('OtherTag') => sub { ++$y };
 }
-
 
 is(
 	Local::Fu2->foo,
@@ -72,3 +92,5 @@ is(
 );
 
 ok $x;
+
+ok $y;

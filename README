@@ -58,6 +58,24 @@ DESCRIPTION
         know, but it suffices to say that Moose and MooseX::RoleQR (but not
         plain Moose::Role) know what to do with it.
 
+    Note that Perl does not allow you to use any old attribute without first
+    declaring it:
+
+     $ perl -MTest::More=no_plan -E'sub X :Y { }; ok(1)'
+     Invalid CODE attribute: Y at -e line 1.
+     BEGIN failed--compilation aborted at -e line 1.
+     # Looks like your test exited with 255 before it could output anything.
+
+    Sub::Talisman provides an easy way of declaring attributes:
+
+     $ perl -MSub::Talisman=Y -MTest::More=no_plan -E'sub X :Y { }; ok(1)'
+     ok 1
+     1..1
+
+    Sub::Talisman is used in the documentation and test cases for
+    MooseX::ModifyTaggedMethods, but any other technique that supports
+    "attributes::get($coderef)" will do.
+
 BUGS
     Please report any bugs to
     <http://rt.cpan.org/Dist/Display.html?Queue=MooseX-ModifyTaggedMethods>.
@@ -71,7 +89,7 @@ AUTHOR
     Toby Inkster <tobyink@cpan.org>.
 
 COPYRIGHT AND LICENCE
-    This software is copyright (c) 2012 by Toby Inkster.
+    This software is copyright (c) 2012-2013 by Toby Inkster.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
