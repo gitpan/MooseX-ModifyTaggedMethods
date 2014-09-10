@@ -1,6 +1,6 @@
 NAME
-    MooseX::ModifyTaggedMethods - use sub attributes to specify which
-    methods want modifiers
+    MooseX::ModifyTaggedMethods - use sub attributes to specify which methods
+    want modifiers
 
 SYNOPSIS
        {
@@ -47,16 +47,16 @@ DESCRIPTION
 
     MooseX::RoleQR extends the functionality for roles, allowing them to use
     regular expressions to specify method modifiers.
-    MooseX::ModifyTaggedMethods goes even further, allowing classes and
-    roles to use attributes (in the perlsub sense of the word) to indicate
-    which methods should be wrapped.
+    MooseX::ModifyTaggedMethods goes even further, allowing classes and roles
+    to use attributes (in the perlsub sense of the word) to indicate which
+    methods should be wrapped.
 
-    "methods_tagged(@tags)"
-        This module exports a single function "methods_tagged" which can be
-        used in conjunction with "before", "after" and "around" to select
-        methods for modifying. What exactly it returns is best you don't
-        know, but it suffices to say that Moose and MooseX::RoleQR (but not
-        plain Moose::Role) know what to do with it.
+    `methods_tagged(@tags)`
+        This module exports a single function `methods_tagged` which can be
+        used in conjunction with `before`, `after` and `around` to select
+        methods for modifying. What exactly it returns is best you don't know,
+        but it suffices to say that Moose and MooseX::RoleQR (but not plain
+        Moose::Role) know what to do with it.
 
     Note that Perl does not allow you to use any old attribute without first
     declaring it:
@@ -74,7 +74,7 @@ DESCRIPTION
 
     Sub::Talisman is used in the documentation and test cases for
     MooseX::ModifyTaggedMethods, but any other technique that supports
-    "attributes::get($coderef)" will do.
+    `attributes::get($coderef)` will do.
 
 BUGS
     Test suite mysteriously seems to fail using forkprove.
@@ -93,8 +93,8 @@ AUTHOR
 COPYRIGHT AND LICENCE
     This software is copyright (c) 2012-2013 by Toby Inkster.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
 
 DISCLAIMER OF WARRANTIES
     THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
